@@ -8,7 +8,7 @@ while ! nc -z $POSTGRES_HOST $POSTGRES_PORT; do
 done
 echo "PostgreSQL started"
 
-export APP_MODULE=${APP_MODULE:-'app.main:app'}
+export APP_MODULE=${APP_MODULE:-'main:apps'}
 export GUNICORN_CONF=${GUNICORN_CONF:-'/gunicorn_conf.py'}
 export WORKER_CLASS=${WORKER_CLASS:-'uvicorn.workers.UvicornWorker'}
 

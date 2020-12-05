@@ -2,8 +2,8 @@ from abc import abstractmethod
 
 from tortoise import fields, Tortoise
 
-from app.core.models import BaseModel
-from app.words.enums import PartSpeechEnum, TranslationFrequencyEnum
+from apps.core.models import BaseModel
+from apps.words.enums import PartSpeechEnum, TranslationFrequencyEnum
 
 
 class WordBaseModel(BaseModel):
@@ -69,4 +69,4 @@ class TranslatorRusEngModel(BaseModel):
         return self.word_eng
 
 
-Tortoise.init_models(['app.words.models'], 'words')
+Tortoise.init_models(['apps.words.models'], 'words')

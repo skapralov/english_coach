@@ -16,6 +16,7 @@ argon2-cffi = "*"
 ecdsa = "*"
 aerich = "*"
 packaging = "*"
+fastapi-users = {extras = ["tortoise-orm"],version = "*"}
 
 [requires]
 python_version = "3.9"

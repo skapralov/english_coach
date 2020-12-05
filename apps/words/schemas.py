@@ -1,7 +1,7 @@
 from pydantic.main import BaseModel
 from tortoise.contrib.pydantic import pydantic_model_creator, PydanticModel
 
-from app.words import models
+from apps.words import models
 
 
 CreateWordRusModel = pydantic_model_creator(models.WordRusModel, exclude_readonly=True)

@@ -2,7 +2,7 @@ from typing import List
 
 from fastapi import APIRouter
 
-from app.words import schemas, models, service
+from apps.words import schemas, models, service
 
 
 words_router = APIRouter()

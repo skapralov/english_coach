@@ -5,7 +5,7 @@ JWT_ACCESS_LIFETIME = timedelta(minutes=30)
 JWT_REFRESH_LIFETIME = timedelta(days=1)
 JWT_ALGORITHM = 'HS256'
 
-SECRET_KEY = '09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7'
+SECRET = '09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7'
 
 POSTGRES_DB = environ.get('PG_NAME', 'english_coach_db')
 POSTGRES_HOST = environ.get('PG_HOST', '127.0.0.1')
@@ -17,7 +17,8 @@ DATABASE_URI = f'postgres://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:
 APPS = {
     'aerich': ['aerich.models', ],
 
-    'words': ['app.words.models', ],
+    'users': ['apps.users.models', ],
+    'words': ['apps.words.models', ],
 }
 
 TORTOISE_ORM = {

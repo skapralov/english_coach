@@ -8,7 +8,7 @@ while ! nc -z $POSTGRES_HOST $POSTGRES_PORT; do
 done
 echo 'PostgreSQL started'
 
-export APP_MODULE=${APP_MODULE:-'app.main:app'}
+export APP_MODULE=${APP_MODULE:-'main:apps'}
 
 HOST=${HOST:-0.0.0.0}
 PORT=${PORT:-8000}
