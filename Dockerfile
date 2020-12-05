@@ -1,15 +1,16 @@
-FROM python:3-slim
+FROM python:3.9-slim
 
 MAINTAINER skapralov
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-ENV PROJECT_PATH /app
-
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    netcat \
     && rm -rf /var/lib/apt/lists/*
 
-COPY . ${PROJECT_PATH}
-WORKDIR ${PROJECT_PATH}
+COPY gunicorn_conf.py start.sh start-reload.sh Pipfile app ./
+RUN chmod +x start.sh && chmod +x start-reload.sh
 
+RUN pip install --upgrade pip
+RUN pip install pipenv==2018.11.26
 RUN pipenv install --skip-lock --system --deploy
+
+ENTRYPOINT /start-reload.sh

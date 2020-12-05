@@ -1,43 +1,42 @@
 version: '3.7'
 
 services:
-  web:
+  app:
     container_name: web
     build:
       context: ./
       dockerfile: Dockerfile
-    command: ["python", "main.py"]
     ports:
       - 8000:8000
     volumes:
-      - ./:/app/
+      - .:.
     env_file:
-      - env
+      - .env
     depends_on:
-      - postgres
-      - redis
+      - db
+#      - redis
     networks:
       - coach-net
 
-  postgres:
+  db:
     image: postgres:13-alpine
-    container_name: postgres
+    container_name: english_coach_db
     ports:
-      - 'localhost:5432:5432'
+    - 5432:5432
     volumes:
       - ./data/pgdata/:/var/lib/postgresql/data
     env_file:
-      - env
+      - .env
     networks:
       - coach-net
 
-  redis:
-    image: redis:6-alpine
-    container_name: redis
-    ports:
-      - 'localhost:6379:6379'
-    networks:
-      - coach-net
+#  redis:
+#    image: redis:6-alpine
+#    container_name: redis
+#    ports:
+#      - 6379:6379
+#    networks:
+#      - coach-net
 
 networks:
   coach-net:

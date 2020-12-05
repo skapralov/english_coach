@@ -6,6 +6,16 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+fastapi = "*"
+tortoise-orm = "*"
+uvicorn = "*"
+asyncpg = "*"
+gunicorn = "*"
+python-jose = "*"
+argon2-cffi = "*"
+ecdsa = "*"
+aerich = "*"
+packaging = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.9"
