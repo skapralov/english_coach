@@ -1,7 +1,6 @@
 from tortoise.contrib.pydantic import pydantic_model_creator
 
-from apps.words import models
-
+from words import models
 
 WordRusPydantic = pydantic_model_creator(models.WordRusModel)
 

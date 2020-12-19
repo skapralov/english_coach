@@ -1,6 +1,6 @@
 from enum import IntEnum
 
-from apps.core.enums import EnumMixin
+from core.enums import EnumMixin
 
 
 class PartSpeechEnum(EnumMixin, IntEnum):

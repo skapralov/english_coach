@@ -2,7 +2,7 @@ from fastapi_users import models
 from fastapi_users.authentication import JWTAuthentication
 from fastapi_users.db import TortoiseBaseUserModel, TortoiseUserDatabase
 
-from apps import settings
+import settings
 
 
 class User(models.BaseUser):

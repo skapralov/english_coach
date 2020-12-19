@@ -16,8 +16,8 @@ DATABASE_URI = f'postgres://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:
 APPS = {
     'aerich': ['aerich.models', ],
 
-    'users': ['apps.users.models', ],
-    'words': ['apps.words.models', ],
+    'users': ['users.models', ],
+    'words': ['words.models', ],
 }
 
 TORTOISE_ORM = {

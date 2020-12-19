@@ -1,10 +1,10 @@
 from abc import abstractmethod
 
-from tortoise import fields, Tortoise
+from tortoise import fields
 
-from apps.core.models import BaseModel
-from apps.users.models import UserModel
-from apps.words.enums import PartSpeechEnum, TranslationFrequencyEnum
+from core.models import BaseModel
+from users.models import UserModel
+from words.enums import PartSpeechEnum, TranslationFrequencyEnum
 
 
 class WordBaseModel(BaseModel):

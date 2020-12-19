@@ -1,5 +1,6 @@
-from apps.words import schemas, models
-from apps.core.service import BaseService
+from words import schemas
+from words import models
+from core.service import BaseService
 
 
 class TranslatorRusEngService(BaseService):

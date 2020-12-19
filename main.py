@@ -2,8 +2,8 @@ import uvicorn
 from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
 
-from apps import settings, routers
-
+import routers
+import settings
 
 app = FastAPI(
     title='english_coach',

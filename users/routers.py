@@ -2,8 +2,8 @@ from fastapi import APIRouter
 from fastapi import Depends, Request, Response
 from fastapi_users import FastAPIUsers
 
-from apps.settings import SECRET
-from apps.users.models import user_db, auth_backends, User, UserCreate, UserUpdate, UserDB, jwt_authentication
+from settings import SECRET
+from users.models import user_db, auth_backends, User, UserCreate, UserUpdate, UserDB, jwt_authentication
 
 
 def on_after_register(user: UserDB, request: Request):

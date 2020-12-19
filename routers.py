@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from apps.words.routers import words_router
-from apps.users.routers import users_router
+from words.routers import words_router
+from users.routers import users_router
 
 api_router = APIRouter()
 
