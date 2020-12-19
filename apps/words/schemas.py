@@ -1,13 +1,12 @@
-from pydantic.main import BaseModel
-from tortoise.contrib.pydantic import pydantic_model_creator, PydanticModel
+from tortoise.contrib.pydantic import pydantic_model_creator
 
 from apps.words import models
 
 
-CreateWordRusModel = pydantic_model_creator(models.WordRusModel, exclude_readonly=True)
-GetWordRusModel = pydantic_model_creator(models.WordRusModel)
+WordRusPydantic = pydantic_model_creator(models.WordRusModel)
 
-CreateWordEngModel = pydantic_model_creator(models.WordEngModel, exclude_readonly=True)
-GetWordEngModel = pydantic_model_creator(models.WordEngModel)
+WordEngPydantic = pydantic_model_creator(models.WordEngModel)
 
-GetTranslatorRusEngModel = pydantic_model_creator(models.TranslatorRusEngModel)
+TranslatorRusEngPydantic = pydantic_model_creator(models.TranslatorRusEngModel)
+
+StudyWordRusEngPydantic = pydantic_model_creator(models.StudyWordRusEngModel)

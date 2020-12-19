@@ -8,6 +8,11 @@ from apps.words import schemas, models, service
 words_router = APIRouter()
 
 
-@words_router.get('/', response_model=List[schemas.GetTranslatorRusEngModel])
+@words_router.get('/translator', response_model=List[schemas.TranslatorRusEngPydantic])
 async def get_translator_rus_eng_list():
-    return await service.transl_ru_en_service.all()
+    return await service.translator_rus_eng_service.all()
+
+
+@words_router.post('/study-words', response_model=List[schemas.StudyWordRusEngPydantic])
+async def get_translator_rus_eng_list():
+    return await service.study_word_rus_eng_service.update()

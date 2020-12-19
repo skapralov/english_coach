@@ -3,6 +3,7 @@ from abc import abstractmethod
 from tortoise import fields, Tortoise
 
 from apps.core.models import BaseModel
+from apps.users.models import UserModel
 from apps.words.enums import PartSpeechEnum, TranslationFrequencyEnum
 
 
@@ -30,6 +31,38 @@ class WordEngModel(WordBaseModel):
 
     class Meta:
         table = 'word_eng'
+
+
+class StudyWordBaseModel(BaseModel):
+    user: fields.ForeignKeyRelation[UserModel] = fields.ForeignKeyField('users.UserModel', on_delete=fields.CASCADE)
+    progress = fields.SmallIntField(description='knowledge of the word')
+    word = fields.ForeignKeyField('words.WordBaseModel')
+
+    @property
+    def status(self) -> bool:
+        return self.progress >= 5
+
+    # async def check_answer(self, answer: int) -> bool:
+    #     status_of_answer = self.word.id == answer
+    #     self.progress = self.progress + 1 if status_of_answer else self.progress - 2
+    #     self.progress = 0 if self.progress < 0 else self.progress
+    #     await self.save()
+    #     return status_of_answer
+
+    def __str__(self) -> str:
+        if self.status:
+            return f'user {self.user.id} learned the word {self.word.title}'
+        return f'user {self.user.id} progress {self.progress} word {self.word.title}'
+
+    class Meta:
+        abstract = True
+
+
+class StudyWordRusEngModel(StudyWordBaseModel):
+    word = fields.ForeignKeyField('words.WordEngModel')
+
+    class Meta:
+        table = 'study_word_rus_eng'
 
 
 class TranslatorBaseModel(BaseModel):
@@ -69,4 +102,4 @@ class TranslatorRusEngModel(BaseModel):
         return self.word_eng
 
 
-Tortoise.init_models(['apps.words.models'], 'words')
+# Tortoise.init_models(['apps.words.models'], 'words')
