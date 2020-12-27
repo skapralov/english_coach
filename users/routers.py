@@ -6,12 +6,6 @@ from settings import SECRET
 from users.models import user_db, auth_backends, User, UserCreate, UserUpdate, UserDB, jwt_authentication
 
 
-class ErrorCode:
-    REGISTER_USER_ALREADY_EXISTS = "sdfgdsgfsd"
-    LOGIN_BAD_CREDENTIALS = "sdfgdgsd"
-    RESET_PASSWORD_BAD_TOKEN = "sdfgsdgds"
-
-
 def on_after_register(user: UserDB, request: Request):
     print(f"User {user.id} has registered.")
 
